@@ -11,7 +11,7 @@ To get started, sign up for a free **Snowflake Trial**.
 3. Enter your details and complete the registration.
 4. Check your email and follow the activation link.
 
-📌![Snowflake Sign-Up Page](assets/images/snowflake_signup.png)
+📌[Snowflake Sign-Up Page](assets/images/snowflake_signup.png)
 
 ---
 
@@ -23,7 +23,7 @@ Once your account is activated, log in to the **Snowflake UI**.
 2. Enter your credentials and log in.
 3. The Snowflake **Home Page** will load.
 
-📌![Snowflake Login Page](assets/images/snowflake_login.png)
+📌[Snowflake Login Page](assets/images/snowflake_login.png)
 
 ---
 
@@ -35,7 +35,7 @@ Before creating databases, let’s explore the **Snowflake UI**.
 - **Warehouses** → Compute resources for queries.
 - **Worksheets** → SQL execution environment.
 
-![Snowflake UI Overview](assets/images/snowflake_ui_overview.png)
+📌[Snowflake UI Overview](assets/images/snowflake_ui_overview.png)
 
 ---
 
@@ -52,7 +52,7 @@ CREATE DATABASE PSA;
 CREATE DATABASE ANALYTICS;
 ```
 
-📌![Creating a Database in Snowflake](assets/images/snowflake_create_db.png)
+📌[Creating a Database in Snowflake](assets/images/snowflake_create_db.png)
 
 ---
 
@@ -73,7 +73,7 @@ This ensures:
  **Cost Efficiency** → Auto-suspends when not in use.  
  **Performance** → Automatically resumes when queries are executed.
 
-📌![Creating a Warehouse in Snowflake](assets/images/snowflake_create_wh.png)
+📌[Creating a Warehouse in Snowflake](assets/images/snowflake_create_wh.png)
 
 ---
 
