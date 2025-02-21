@@ -6,7 +6,7 @@ This section walks you through setting up a Snowflake account, creating the nece
 
 To get started, sign up for a free **Snowflake Trial**.
 
-1. Visit the [Snowflake Sign-Up Page](https://signup.snowflake.com/).
+1. Visit the [Snowflake Sign-Up Page](https://signup.snowflake.com/){:target="_blank"}.
 2. Choose your preferred cloud provider (AWS, Azure, or GCP).
 3. Enter your details and complete the registration.
 4. Check your email and follow the activation link.
