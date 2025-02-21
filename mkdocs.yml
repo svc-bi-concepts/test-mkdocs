@@ -106,12 +106,12 @@ copyright: |
 
 nav:
   - index.md
-  - code-examples.md
-  - content.md
-  - diagram.md
   - Hands-on-Lab:
-      - Setup:
-          - setup.md
-      - Modules:
-          - AI-Readiness-Hands-on-Lab.md
+      - Snowflake Setup: snowflake-setup.md
+      - dbt Cloud Setup: dbt-setup.md
+      - Fivetran Setup: fivetran-setup.md
+      - Data Transformation with dbt: dbt-transformation.md
+      - Data Quality & Testing: data-quality.md
+      - Documentation & Deployment: dbt-deployment.md
+      - Data Visualization: data-visualization.md
   - resources.md

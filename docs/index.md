@@ -1,17 +1,19 @@
-# Welcome to you HWZ Seminar 2025
+# Home
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Welcome
 
-## Commands
+This tutorial walks you through setting up a scalable, cloud-based data platform using:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- **Snowflake** for cloud data storage
+- **dbt cloud** for data transformation
+- **Fivetran** for data ingestion
 
-## Project layout :beers:
+You'll learn how to integrate these tools efficiently, automate workflows, and ensure high-quality analytics data.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+**What You'll Achieve**
+
+- Create and configure a cloud-based data warehouse
+- Automate data ingestion and transformation.
+- Set up CI/CD and version control for analytics.
+- Implement data observability for quality assurance.
+- Build dashboards and reports with structured insights.
