@@ -5,6 +5,8 @@ theme:
   font:
     text: "Open Sans"
     code: "Roboto Mono"
+  logo: assets/images/BI_Concepts_logo_graphic_color.png
+  favicon: assets/images/favicon.ico
 
   palette:
     # Dark Mode
