@@ -75,6 +75,44 @@ This ensures:
 
 📌[Creating a Warehouse in Snowflake](assets/images/snowflake_create_wh.png)
 
+## 6. Retrieving Snowflake Account Details
+
+To integrate Snowflake with **Fivetran** and **dbt**, we need specific account details.
+
+1. **Account URL**: This is the URL you use to log in to Snowflake.
+2. **Account Name**: Found in the Snowflake UI under the profile section.
+3. **Warehouse Name**: The name of the warehouse you created (e.g., `TRANSFORMER`).
+4. **Database Names**: The names of the databases you created (e.g., `PSA`, `ANALYTICS`).
+
+📌[Snowflake Account Details](assets/images/snowflake_account_details.png)
+
+Run the following SQL to retrieve the account name and other details:
+
+```sql
+SELECT CURRENT_ACCOUNT() AS ACCOUNT_NAME,
+    CURRENT_REGION() AS REGION,
+    CURRENT_ROLE() AS ROLE,
+    CURRENT_WAREHOUSE() AS WAREHOUSE,
+    CURRENT_DATABASE() AS DATABASE;
+```
+
+Make sure to note down these details as they will be required for the next steps in setting up Fivetran and dbt.
+
+
+## 7. Download Login Details Template
+
+To keep track of your login details for Snowflake, Fivetran, and dbt, download and fill out the following template:
+
+📄 [Download Login Details Template](assets/templates/login_details_template.txt){:download}
+
+This template includes sections for:
+- **Snowflake Account Details**
+- **Fivetran Account Details**
+- **dbt Account Details**
+
+Make sure to save this file securely and update it as needed.
+
+
 ---
 
 ## Next Steps
