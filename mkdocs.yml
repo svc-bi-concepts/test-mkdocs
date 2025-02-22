@@ -1,5 +1,5 @@
 site_name: AI Readiness Hands-on Lab
-site_url: https://sitename.example
+site_url: https://svc-bi-concepts.github.io/test-mkdocs
 theme:
   name: material
   font:
@@ -14,8 +14,8 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Dark mode
-      primary: green
-      accent: deep purple
+      primary: blue
+      accent: deep blue
 
     # Light Mode
     - scheme: default
