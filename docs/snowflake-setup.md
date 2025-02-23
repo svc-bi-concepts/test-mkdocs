@@ -96,7 +96,7 @@ SELECT CURRENT_ACCOUNT() AS ACCOUNT_NAME,
     CURRENT_DATABASE() AS DATABASE;
 ```
 
-Make sure to note down these details as they will be required for the next steps in setting up Fivetran and dbt.
+:pen: Make sure to note down these details as they will be required for the next steps in setting up Fivetran and dbt.
 
 
 ## 7. Download Login Details Template
@@ -105,10 +105,21 @@ To keep track of your login details for Snowflake, Fivetran, and dbt, download a
 
 📄 [Download Login Details Template](assets/templates/login_details_template.txt){:download}
 
-This template includes sections for:
-- **Snowflake Account Details**
-- **Fivetran Account Details**
-- **dbt Account Details**
+
+!!!note "This template includes sections for:"
+
+    1. **Snowflake Account Details**
+
+        1. Account URL
+        2. Account Name
+        3. Username
+        4. Password
+        5. Warehouse Name
+        6. Database Names
+
+    1. **Fivetran Account Details**
+
+    1. **dbt Account Details**
 
 Make sure to save this file securely and update it as needed.
 
