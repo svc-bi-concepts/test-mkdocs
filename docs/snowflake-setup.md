@@ -15,12 +15,25 @@ To keep track of your login details for Snowflake, Fivetran, and dbt, download a
         2. Account Locator e.g. BYELBTA.MV59868
         3. Username [your_username]
         4. Password [your_password]
-        5. Warehouse Name TRANSFORMER
-        6. Database Names PSA, ANALYTICS
+        5. Warehouse Name `TRANSFORMER`
+        6. Database Names `PSA`, `ANALYTICS`
+
+    1. **dbt Account Details**
+        
+        1. Username [your_username]
+        2. Password [your_password]
+        3. Project Name `ANALYTICS`
 
     1. **Fivetran Account Details**
 
-    1. **dbt Account Details**
+        1. Username [your_username]
+        2. Password [your_password]
+        3. Connector Source Details:
+            ```
+            https://drive.google.com/drive/u/0/folders/1Z_U_6SVP6vWXGJWHu9Fl_uUjieyVjaWX
+            ```
+
+
 
 Make sure to save this file securely and update it as needed.
 
@@ -41,7 +54,7 @@ To get started, sign up for a free **Snowflake Trial**.
     ![Snowflake Cloud Provider](./assets/screenshots/SnowSignup3.png)
 
     !!! warning "Big challenge upcoming"
-        Here, a catpcha might appear, so you need to solve it to continue.
+        Here, a captcha might appear, so you need to solve it to continue.
 
 3. You can either fill the next two forms or skip them. We recommend skipping them for now.
 
