@@ -101,6 +101,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/benjamin-saladin
 
+extra_css:
+  - stylesheets/extra.css
+
 copyright: |
   &copy; 2025 <a href="https://github.com/svc-biconcepts"  target="_blank" rel="noopener">Benjamin Saladin</a>
 

@@ -2,105 +2,6 @@
 
 This section walks you through setting up a Snowflake account, creating the necessary databases, and configuring the environment for the hands-on lab.
 
-## 1. Creating a Snowflake Account
-
-To get started, sign up for a free **Snowflake Trial**.
-
-1. Visit the [Snowflake Sign-Up Page](https://signup.snowflake.com/){:target="_blank"}.
-2. Choose your preferred cloud provider (AWS, Azure, or GCP).
-3. Enter your details and complete the registration.
-4. Check your email and follow the activation link.
-
-📌[Snowflake Sign-Up Page](assets/images/snowflake_signup.png)
-
----
-
-## 2. Configuring Snowflake
-
-Once your account is activated, log in to the **Snowflake UI**.
-
-1. Go to the Snowflake URL provided in the confirmation email.
-2. Enter your credentials and log in.
-3. The Snowflake **Home Page** will load.
-
-📌[Snowflake Login Page](assets/images/snowflake_login.png)
-
----
-
-## 3. Navigating Snowflake
-
-Before creating databases, let’s explore the **Snowflake UI**.
-
-- **Databases** → Where data is stored.
-- **Warehouses** → Compute resources for queries.
-- **Worksheets** → SQL execution environment.
-
-📌[Snowflake UI Overview](assets/images/snowflake_ui_overview.png)
-
----
-
-## 4. Creating Databases
-
-For this hands-on lab, we need two databases:
-- **PSA** (Persistent Staging Area)
-- **ANALYTICS** (Final Data Warehouse)
-
-Run the following SQL to create them:
-
-```sql
-CREATE DATABASE PSA;
-CREATE DATABASE ANALYTICS;
-```
-
-📌[Creating a Database in Snowflake](assets/images/snowflake_create_db.png)
-
----
-
-## 5. Compute Warehouse Setup
-
-Snowflake uses **virtual warehouses** to process queries. Create a warehouse for this lab:
-
-```sql
-CREATE WAREHOUSE TRANSFORMER
-WITH WAREHOUSE_SIZE = 'XSMALL'
-AUTO_SUSPEND = 60
-AUTO_RESUME = TRUE
-INITIALLY_SUSPENDED = TRUE;
-```
-
-This ensures:
-
- **Cost Efficiency** → Auto-suspends when not in use.  
- **Performance** → Automatically resumes when queries are executed.
-
-📌[Creating a Warehouse in Snowflake](assets/images/snowflake_create_wh.png)
-
-## 6. Retrieving Snowflake Account Details
-
-To integrate Snowflake with **Fivetran** and **dbt**, we need specific account details.
-
-1. **Account URL**: This is the URL you use to log in to Snowflake.
-2. **Account Name**: Found in the Snowflake UI under the profile section.
-3. **Warehouse Name**: The name of the warehouse you created (e.g., `TRANSFORMER`).
-4. **Database Names**: The names of the databases you created (e.g., `PSA`, `ANALYTICS`).
-
-📌[Snowflake Account Details](assets/images/snowflake_account_details.png)
-
-Run the following SQL to retrieve the account name and other details:
-
-```sql
-SELECT CURRENT_ACCOUNT() AS ACCOUNT_NAME,
-    CURRENT_REGION() AS REGION,
-    CURRENT_ROLE() AS ROLE,
-    CURRENT_WAREHOUSE() AS WAREHOUSE,
-    CURRENT_DATABASE() AS DATABASE;
-```
-
-:pen: Make sure to note down these details as they will be required for the next steps in setting up Fivetran and dbt.
-
-
-## 7. Download Login Details Template
-
 To keep track of your login details for Snowflake, Fivetran, and dbt, download and fill out the following template:
 
 📄 [Download Login Details Template](assets/templates/login_details_template.txt){:download}
@@ -110,12 +11,12 @@ To keep track of your login details for Snowflake, Fivetran, and dbt, download a
 
     1. **Snowflake Account Details**
 
-        1. Account URL
-        2. Account Name
-        3. Username
-        4. Password
-        5. Warehouse Name
-        6. Database Names
+        1. Account URL  e.g. https://kg10297.eu-central-2.aws.snowflakecomputing.com
+        2. Account Locator e.g. BYELBTA.MV59868
+        3. Username [your_username]
+        4. Password [your_password]
+        5. Warehouse Name TRANSFORMER
+        6. Database Names PSA, ANALYTICS
 
     1. **Fivetran Account Details**
 
@@ -123,11 +24,183 @@ To keep track of your login details for Snowflake, Fivetran, and dbt, download a
 
 Make sure to save this file securely and update it as needed.
 
+---
+
+## 1. Creating a Snowflake Account
+
+To get started, sign up for a free **Snowflake Trial**.
+
+1. Visit the [Snowflake Sign-Up Page](https://signup.snowflake.com/){:target="_blank"}. And enter your first name, last name, and work email address. Select a reason for signing up, tick if you want to opt out of marketing emails and click **Continue**.
+
+    ![Snowflake Sign-Up Page](./assets/screenshots/SnowSignup1.png)
+
+    ![Snowflake Sign-Up Page filled](./assets/screenshots/SnowSignup2.png)
+
+2. Choose your preferred cloud provider (AWS, Azure, or GCP). We prefer AWS for this lab, and also in general this is the most popular choice, since new features are usually released on AWS first. Click **Get Started**.
+
+    ![Snowflake Cloud Provider](./assets/screenshots/SnowSignup3.png)
+
+    !!! warning "Big challenge upcoming"
+        Here, a catpcha might appear, so you need to solve it to continue.
+
+3. You can either fill the next two forms or skip them. We recommend skipping them for now.
+
+    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup4.png)
+
+    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup5.png)
+
+4. Check your email and follow the activation link. It might take a few minutes for the email to arrive.
+
+    ![Snowflake Activation Email Sent](./assets/screenshots/SnowSignup6.png)
+
+    And here it is:
+
+    ![Snowflake Activation Email Received](./assets/screenshots/SnowSignup7.png)
+
+5. Click on the **Click To Activate** button. You will be redirected to the Snowflake login page.
+
+    ![Snowflake Create User](./assets/screenshots/SnowSignup8.png)
+
+    Fill in a username and a password and then confirm. Note down these credentials as you will need them later.
+
+    ![Snowflake Create User Filled](./assets/screenshots/SnowSignup9.png)
+
+    !!! info "Username and password requirements"
+        Username must be in letters and numbers.
+        The password must contain between 14-256 characters, at least one uppercase letter, one lowercase letter and one number.
+
+6. You will be redirected to the Snowflake UI. You are now ready to start using Snowflake. Skip this screen for now.
+
+    ![Snowflake UI Welcome Screen](./assets/screenshots/SnowSignup10.png)
+---
+
+## 2. Retrieve Snowflake Account Details
+
+Now you can see the standard **Snowflake UI**.
+
+![Snowflake UI Start](./assets/screenshots/SnowflakeConfig1.png)
+
+1. Find your account **url** & **locater** and note them down.
+
+    ![Snowflake Signup Process](./assets/videos/SnowflakeFindAccountInfo.gif)
+
+2. Go to the next section.
+
+
+
+---
+## 3. Creating Databases
+
+For this hands-on lab, we need two databases:
+- **PSA** (Persistent Staging Area)
+- **ANALYTICS** (Final Data Warehouse)
+
+=== "UI based"
+    1. Click on the **Data** tab on the left.
+
+        ![Snowflake Databases](./assets/screenshots/SnowflakeConfig2.png)
+
+    2. Click on the **+ Database** button.
+
+        ![Snowflake New Database](./assets/screenshots/SnowflakeConfig3.png)
+
+    3. Enter the database name (`ANALYTICS` and `PSA`). Then click **Create**.
+
+        ![Snowflake Create Database](./assets/screenshots/SnowflakeConfig4.png)
+
+    4. The new databases have now appeared in the UI.
+
+        ![Snowflake Databases Created](./assets/screenshots/SnowflakeConfig5.png)
+
+    5. Go to the next section.
+
+
+
+=== "Code based"
+    
+    1. Go to **Projects** and then **Worksheets**.
+
+    2. Click on the **+** button on the top right corner to create a new SQL worksheet.
+
+    3. Run the following SQL to create them:
+        ```sql
+        CREATE DATABASE PSA;
+        CREATE DATABASE ANALYTICS;
+        ```
+        Output from PSA command:
+        ![Snowflake Create PSA](./assets/screenshots/SnowflakeConfig6.png)
+    4. Verify that the databases have been created:
+        ```sql
+        SHOW DATABASES;
+        ```
+    5. You should see the two databases listed. Go to the next section.
+
+
+
+---
+
+## 4. Compute Warehouse Setup
+
+Snowflake uses **virtual warehouses** to process queries. Create a warehouse for this lab:
+
+
+=== "UI based"
+    1. Click on the **Admin Section** tab on the left.
+
+        ![Snowflake Warehouses](./assets/screenshots/SnowflakeConfig7.png)
+
+    2. Select Warehouses and then click on the **+ Warehouse** button on the top right.
+
+        ![Snowflake New Warehouse](./assets/screenshots/SnowflakeConfig8.png)
+
+    3. Enter the warehouse name (`TRANSFORMER`), under **Advanced Options** add 1 for **Suspend After**, and click **Create Warehouse**.
+
+        ![Snowflake Create Warehouse](./assets/screenshots/SnowflakeConfig9.png)
+
+    4. The new warehouse has now appeared in the UI.
+
+        ![Snowflake Warehouse Created](./assets/screenshots/SnowflakeConfig10.png)
+
+    5. Go to the next section.
+
+=== "Code based"
+    1. Run the following SQL to create a warehouse named `TRANSFORMER` in a SQL worksheet:
+
+        ```sql
+        CREATE WAREHOUSE TRANSFORMER
+        WITH WAREHOUSE_SIZE = 'XSMALL'
+        AUTO_SUSPEND = 60
+        AUTO_RESUME = TRUE
+        INITIALLY_SUSPENDED = TRUE;
+        ```
+
+        This ensures:
+
+        **Cost Efficiency** → Auto-suspends when not in use.  
+        **Performance** → Automatically resumes when queries are executed
+
+    2. Verify that the warehouse has been created:
+
+        ```sql
+        SHOW WAREHOUSES;
+        ```
+    3. You should see the new warehouse listed. Go to the next section.
+    
+
+
+
+
+---
+
+## 5. Navigating Snowflake
+
+Let’s explore the **Snowflake UI**.
+
 
 ---
 
 ## Next Steps
 
-Now that we have **databases** and a **warehouse** set up, we are ready to move on to **data ingestion with Fivetran**.
+Now that we have our **user**, the **databases** and a **warehouse** set up, we are ready to move on to **data transformation with dbt cloud**.
 
-📌 **Continue to the next section: [Fivetran Setup](fivetran-setup.md)** 🚀
+ **Continue to the next section: [dbt Cloud Setup](dbt-setup.md)** 🚀
