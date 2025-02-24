@@ -45,38 +45,38 @@ To get started, sign up for a free **Snowflake Trial**.
 
 1. Visit the [Snowflake Sign-Up Page](https://signup.snowflake.com/){:target="_blank"}. And enter your first name, last name, and work email address. Select a reason for signing up, tick if you want to opt out of marketing emails and click **Continue**.
 
-    ![Snowflake Sign-Up Page](./assets/screenshots/SnowSignup1.png)
+    ![Snowflake Sign-Up Page](./assets/screenshots/SnowSignup/SnowSignup1.png)
 
-    ![Snowflake Sign-Up Page filled](./assets/screenshots/SnowSignup2.png)
+    ![Snowflake Sign-Up Page filled](./assets/screenshots/SnowSignup/SnowSignup2.png)
 
 2. Choose your preferred cloud provider (AWS, Azure, or GCP). We prefer AWS for this lab, and also in general this is the most popular choice, since new features are usually released on AWS first. Click **Get Started**.
 
-    ![Snowflake Cloud Provider](./assets/screenshots/SnowSignup3.png)
+    ![Snowflake Cloud Provider](./assets/screenshots/SnowSignup/SnowSignup3.png)
 
     !!! warning "Big challenge upcoming"
         Here, a captcha might appear, so you need to solve it to continue.
 
 3. You can either fill the next two forms or skip them. We recommend skipping them for now.
 
-    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup4.png)
+    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup/SnowSignup4.png)
 
-    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup5.png)
+    ![Snowflake Skip Forms](./assets/screenshots/SnowSignup/SnowSignup5.png)
 
 4. Check your email and follow the activation link. It might take a few minutes for the email to arrive.
 
-    ![Snowflake Activation Email Sent](./assets/screenshots/SnowSignup6.png)
+    ![Snowflake Activation Email Sent](./assets/screenshots/SnowSignup/SnowSignup6.png)
 
     And here it is:
 
-    ![Snowflake Activation Email Received](./assets/screenshots/SnowSignup7.png)
+    ![Snowflake Activation Email Received](./assets/screenshots/SnowSignup/SnowSignup7.png)
 
 5. Click on the **Click To Activate** button. You will be redirected to the Snowflake login page.
 
-    ![Snowflake Create User](./assets/screenshots/SnowSignup8.png)
+    ![Snowflake Create User](./assets/screenshots/SnowSignup/SnowSignup8.png)
 
     Fill in a username and a password and then confirm. Note down these credentials as you will need them later.
 
-    ![Snowflake Create User Filled](./assets/screenshots/SnowSignup9.png)
+    ![Snowflake Create User Filled](./assets/screenshots/SnowSignup/SnowSignup9.png)
 
     !!! info "Username and password requirements"
         Username must be in letters and numbers.
@@ -84,14 +84,14 @@ To get started, sign up for a free **Snowflake Trial**.
 
 6. You will be redirected to the Snowflake UI. You are now ready to start using Snowflake. Skip this screen for now.
 
-    ![Snowflake UI Welcome Screen](./assets/screenshots/SnowSignup10.png)
+    ![Snowflake UI Welcome Screen](./assets/screenshots/SnowSignup/SnowSignup10.png)
 ---
 
 ## 2. Retrieve Snowflake Account Details
 
 Now you can see the standard **Snowflake UI**.
 
-![Snowflake UI Start](./assets/screenshots/SnowflakeConfig1.png)
+![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig1.png)
 
 1. Find your account **url** & **locater** and note them down.
 
@@ -111,19 +111,19 @@ For this hands-on lab, we need two databases:
 === "UI based"
     1. Click on the **Data** tab on the left.
 
-        ![Snowflake Databases](./assets/screenshots/SnowflakeConfig2.png)
+        ![Snowflake Databases](./assets/screenshots/SnowflakeConfig/SnowflakeConfig2.png)
 
     2. Click on the **+ Database** button.
 
-        ![Snowflake New Database](./assets/screenshots/SnowflakeConfig3.png)
+        ![Snowflake New Database](./assets/screenshots/SnowflakeConfig/SnowflakeConfig3.png)
 
     3. Enter the database name (`ANALYTICS` and `PSA`). Then click **Create**.
 
-        ![Snowflake Create Database](./assets/screenshots/SnowflakeConfig4.png)
+        ![Snowflake Create Database](./assets/screenshots/SnowflakeConfig/SnowflakeConfig4.png)
 
     4. The new databases have now appeared in the UI.
 
-        ![Snowflake Databases Created](./assets/screenshots/SnowflakeConfig5.png)
+        ![Snowflake Databases Created](./assets/screenshots/SnowflakeConfig/SnowflakeConfig5.png)
 
     5. Go to the next section.
 
@@ -141,7 +141,7 @@ For this hands-on lab, we need two databases:
         CREATE DATABASE ANALYTICS;
         ```
         Output from PSA command:
-        ![Snowflake Create PSA](./assets/screenshots/SnowflakeConfig6.png)
+        ![Snowflake Create PSA](./assets/screenshots/SnowflakeConfig/SnowflakeConfig6.png)
     4. Verify that the databases have been created:
         ```sql
         SHOW DATABASES;
@@ -160,19 +160,19 @@ Snowflake uses **virtual warehouses** to process queries. Create a warehouse for
 === "UI based"
     1. Click on the **Admin Section** tab on the left.
 
-        ![Snowflake Warehouses](./assets/screenshots/SnowflakeConfig7.png)
+        ![Snowflake Warehouses](./assets/screenshots/SnowflakeConfig/SnowflakeConfig7.png)
 
     2. Select Warehouses and then click on the **+ Warehouse** button on the top right.
 
-        ![Snowflake New Warehouse](./assets/screenshots/SnowflakeConfig8.png)
+        ![Snowflake New Warehouse](./assets/screenshots/SnowflakeConfig/SnowflakeConfig8.png)
 
     3. Enter the warehouse name (`TRANSFORMER`), under **Advanced Options** add 1 for **Suspend After**, and click **Create Warehouse**.
 
-        ![Snowflake Create Warehouse](./assets/screenshots/SnowflakeConfig9.png)
+        ![Snowflake Create Warehouse](./assets/screenshots/SnowflakeConfig/SnowflakeConfig9.png)
 
     4. The new warehouse has now appeared in the UI.
 
-        ![Snowflake Warehouse Created](./assets/screenshots/SnowflakeConfig10.png)
+        ![Snowflake Warehouse Created](./assets/screenshots/SnowflakeConfig/SnowflakeConfig10.png)
 
     5. Go to the next section.
 
