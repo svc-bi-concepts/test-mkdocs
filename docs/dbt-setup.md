@@ -1,65 +1,145 @@
 # dbt Cloud Setup
 
 ## 1. Create a dbt Cloud Account
-1. To start using dbt Cloud, sign up for an account on the [dbt Cloud website](https://cloud.getdbt.com/){:target="_blank"}.
+   1. To start using dbt Cloud, sign up for an account on the [dbt Cloud website](https://cloud.getdbt.com/){:target="_blank"}. **Start free trial**.
 
-2. Navigate to the signup page.
-3. Choose the free plan (or a trial of the Team/Enterprise plan if needed).
-4. Complete the registration process.
+    !!! note "Note down dbt credentials"
+        Add username and password to your text file.
 
-📸 *Insert screenshot of the dbt Cloud signup page here.*
 
----
+      ![dbt Cloud Homepage](./assets/screenshots/dbtSetup/dbtSetup1.png)
 
-## 2. Set Up a New Project
-Once logged in, create a new project:
+   2. You will receive an email for the verification process.
 
-1. Click on **"New Project"**.
-2. Select your data warehouse (Snowflake).
-3. Follow the guided setup wizard.
+      ![dbt Cloud Verification Email](./assets/screenshots/dbtSetup/dbtSetup2.png)
 
-📸 *Insert screenshot of the "New Project" setup page here.*
+      Click on the **Verify your email address** to confirm your account.
 
----
+      ![dbt Cloud Email Verification](./assets/screenshots/dbtSetup/dbtSetup3.png)
 
-## 3. Connect dbt Cloud to Snowflake
-To enable dbt transformations, you need to link dbt Cloud to your Snowflake instance:
+   3. Account setup complete! You can close any pop ups that might appear.
 
-1. Choose **Snowflake** as your data warehouse.
-2. Enter the required Snowflake credentials:
-   - Account name
-   - Username
-   - Password (or authentication method like OAuth)
-   - Warehouse, Database, and Schema
-3. Test the connection and save.
-
-📸 *Insert screenshot of Snowflake connection settings in dbt Cloud.*
+      ![dbt Cloud Account Setup](./assets/screenshots/dbtSetup/dbtSetup4.png)
 
 ---
 
-## 4. Configure the Project Repository
-If you plan to use version control:
+## 2. Complete the project setup
+dbt Cloud will per default set up a new project called `ANALYTICS`, which we will leverage for our lab.
 
-1. Connect your **GitHub/Bitbucket/GitLab** repository.
-2. Authorize dbt Cloud to access your repository.
-3. Select the correct repository and branch.
+   1. Select dropdown for **"Connection"**. **Add new connection**.
 
-📸 *Insert screenshot of repository configuration settings.*
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup5.png)
+
+   2. Select your data warehouse `Snowflake`.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup6.png)
+
+
+   3. Fill out the form.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup7.png)
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup8.png)
+
+
 
 ---
 
-## 5. Verify Setup and Run a Test
-To confirm everything is set up correctly:
+## 3. Connect dbt Cloud to Snowflake with adding your developer credentials
 
-1. Click **"Develop"** to open the dbt IDE.
-2. Run `dbt debug` to validate the connection.
-3. Execute `dbt run` to test a transformation.
+   Go back to the **Dashboard** on the top left corner to configure your development environment.
 
-📸 *Insert screenshot of dbt run results.*
+   To enable dbt transformations, you need to add the development credentials to your connection for dbt Cloud to your Snowflake instance:
+
+   1. Choose **Snowflake_HWZ** as your Connection.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup9.png)
+
+   2. Enter the required Snowflake credentials:
+      - Username from your snowflake account
+      - Password from your snowflake account
+      - Schema (leave the default)
+      - Target name (leave: default)
+      - Threads set to 16 (XS Warehouse starts with 8 threads)
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup10.png)
+
+      **Test Connection** to verify the connection.
+
+   3. Save Development credentials if successful.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup11.png)   
+
+
+
+---
+
+## 4. Setup the Project Repository to complete the Project Setup
+   For simplicity reasons, we are going to use the dbt Cloud IDE to manage our project repository.
+
+   1. Select **Managed** and add a name for your repository.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup12.png)
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup13.png)
+
+   2. Success - Let's go to **Start developing in the IDE**
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup14.png)
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup15.png)
+
+---
+
+## 5. Initialize your Analytics Project
+
+The initialization creates the following project structure:
+
+      📦 your_dbt_project
+      ├── 📂 analyses
+      ├── 📂 macros
+      ├── 📂 models
+      ├── 📂 seeds
+      ├── 📂 snapshots
+      ├── 📂 target
+      ├── 📂 tests
+      ├── 📄 .gitignore
+      ├── 📄 README
+      └── 📄 dbt_project
+
+
+   1. Ignore the upcoming pop-ups.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup16.png)
+
+   2. **Intialize dbt project** by clicking on the bottom on the top left.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup17.png)
+
+   3. Initialization comes with an example model, which we do not care about. **Delete** the example model `.models/example`.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup18.png)
+
+      Hit **Delete**.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup19.png)
+
+   4. **Commit and sync** the changes.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup20.png)
+
+      Add a message like `Initial commit` and hit **Commit changes**.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup21.png)
+
+   5. **Success** - Your dbt project is now ready for development.
+
+      ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup22.png)
+
 
 ---
 
 ## 🎉 Next Steps
 Now that dbt Cloud is configured, proceed to setting up transformations and version control.
 
-🔗 **Continue to:** [Data Transformation with dbt](dbt-transformation.md)
+🔗 **Continue to:** [Data loading with Fivetran](fivetran-setup.md)
