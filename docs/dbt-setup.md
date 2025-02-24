@@ -1,11 +1,11 @@
 # dbt Cloud Setup
 
 ## 1. Create a dbt Cloud Account
-To start using dbt Cloud, sign up for an account on the [dbt Cloud website](https://cloud.getdbt.com/){:target="_blank"}.
+1. To start using dbt Cloud, sign up for an account on the [dbt Cloud website](https://cloud.getdbt.com/){:target="_blank"}.
 
-1. Navigate to the signup page.
-2. Choose the free plan (or a trial of the Team/Enterprise plan if needed).
-3. Complete the registration process.
+2. Navigate to the signup page.
+3. Choose the free plan (or a trial of the Team/Enterprise plan if needed).
+4. Complete the registration process.
 
 📸 *Insert screenshot of the dbt Cloud signup page here.*
 
