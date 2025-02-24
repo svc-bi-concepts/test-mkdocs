@@ -78,24 +78,24 @@ Connector configuration is set up - go to the next step.
 
 
 2. Fill in the required information:
-- **Snowflaek Account URL** (e.g. `<account>.snowflakecomputing.com/` - kg10297.eu-central-2.aws.snowflakecomputing.com)
-- **Snowflake USER**: `<username>`
-- **Database**: `PSA`
-- **Auth**: set to `PASSWORD`
-- **Password**: `<password>`
-- **Data processing location**: ```EU```
-- **Fivetran processing cloud provider**: ```AWS```
-- **Time Zone**: `UTC`
+    - **Snowflake Account URL** (e.g. `<account>.snowflakecomputing.com/`| `kg10297.eu-central-2.aws.snowflakecomputing.com`)
+    - **Snowflake USER**: `<username>`
+    - **Database**: `PSA`
+    - **Auth**: set to `PASSWORD`
+    - **Password**: `<password>`
+    - **Data processing location**: ```EU```
+    - **Fivetran processing cloud provider**: ```AWS```
+    - **Time Zone**: `UTC`
 
     Desired state:
 
     ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup14.png)
 
-    Click **Save & Test**.
+    - Click **Save & Test**.
 
 
     
-    **All connection tests passed!**
+    - **All connection tests passed!**
 
     ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup15.png)
 
@@ -177,6 +177,9 @@ Once connected, start syncing data from **Google Drive to Snowflake**.
 </div>
 
 ---
+
+## 🚀 Let's take a quick walk through the UI
+
 
 ## 🎉 Next Steps
 Now that Fivetran is successfully pulling data into Snowflake, proceed to **dbt transformations**.
