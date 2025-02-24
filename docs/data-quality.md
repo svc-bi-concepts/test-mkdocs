@@ -10,7 +10,7 @@ dbt provides built-in test types and supports custom tests through packages like
 
 ## 1. Defining Data Quality Tests
 
-    In dbt, tests are defined within the `schema.yml` files alongside the models they validate.
+In dbt, tests are defined within the `schema.yml` files alongside the models they validate.
 
 ### **Example: Basic Tests on the `stg_orders` Model**
 ```yaml

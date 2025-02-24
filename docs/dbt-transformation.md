@@ -90,6 +90,23 @@ Before starting with dbt transformations, we need to add some more configuration
                 +schema: dm
     ```
 
+4. Add under macros the folloing code into the file .macros/generate_schema_name.sql
+
+    ```sql
+    {% macro generate_schema_name(custom_schema_name, node) -%}
+        {%- set default_schema = target.schema -%}
+        {%- if custom_schema_name is none or target.name == 'PRD' -%}
+            {{ custom_schema_name | trim }}
+        {%- else -%}
+            {%- if var('ignore_default_schema')==true -%}
+            {{ custom_schema_name | trim }}
+            {%- else -%}
+            {{ default_schema }}_{{ custom_schema_name | trim }}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endmacro %}
+    ```
+This macro will be used to generate the schema name for the tables and views that will be created in Snowflake and makes it more readable.
 
 5. **Commit changes**:
     - Use a message like `dbt project setup`.
