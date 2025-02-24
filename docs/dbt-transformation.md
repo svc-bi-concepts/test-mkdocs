@@ -653,6 +653,6 @@ To provide structured data for analysis:
 
 ## 🎉 Next Steps
 
-Now that the dbt transformation pipeline is configured, proceed to documentation and production deployment.
+Now that the dbt transformation pipeline is configured, proceed to data quality testing.
 
-🔗 **Continue to:** [dbt Data Quality Tests](dbt-quality.md)
+🔗 **Continue to:** [dbt Data Quality Tests](data-quality.md) 
