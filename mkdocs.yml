@@ -100,21 +100,23 @@ extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/benjamin-saladin
+    - icon: fontawesome/brands/github
+      link: https://github.com/svc-bi-concepts
 
 extra_css:
   - stylesheets/extra.css
 
 copyright: |
-  &copy; 2025 <a href="https://github.com/svc-biconcepts"  target="_blank" rel="noopener">Benjamin Saladin</a>
+  &copy; 2025 <a href="https://www.bi-concepts.ch/team/benjamin-saladin"  target="_blank" rel="noopener">Benjamin Saladin</a> | <a href="https://www.bi-concepts.ch"  target="_blank" rel="noopener">BI Concepts</a>
 
 nav:
   - index.md
   - Hands-on-Lab:
-      - Snowflake Setup: snowflake-setup.md
-      - dbt Cloud Setup: dbt-setup.md
-      - Fivetran Setup: fivetran-setup.md
-      - Data Transformation with dbt: dbt-transformation.md
-      - Data Quality & Testing: data-quality.md
-      - Documentation & Deployment: dbt-deployment.md
-      - Data Visualization: data-visualization.md
+      - 1. Snowflake Setup: snowflake-setup.md
+      - 2. dbt Cloud Setup: dbt-setup.md
+      - 3. Fivetran Setup: fivetran-setup.md
+      - 4. Data Transformation with dbt: dbt-transformation.md
+      - 5. Data Quality & Testing: data-quality.md
+      - 6. Documentation & Deployment: dbt-deployment.md
+      - 7. Data Visualization: data-visualization.md
   - resources.md
