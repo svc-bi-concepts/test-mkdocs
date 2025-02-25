@@ -18,9 +18,9 @@ A production environment ensures that **only tested, validated models** are expo
 ### **Steps to Set Up a Production Environment**
 1. **Go to dbt Cloud** → Click **Deploy** > **Environments**.
 2. **Create a New Environment**:
-   - **Name**: `Prod`
+   - **Name**: `PRD`
    - **Deployment type**: `Production`
-   - **Conncetion**: `Snowflake_HWZ`
+   - **Connection**: `Snowflake_HWZ`
    - **Deployment credentials**: Use the Snowflake credentials.
    - **Schema**: `default`
 
