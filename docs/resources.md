@@ -1,1 +1,1 @@
-Here you can find the resources to download.
+Here you can find the resources to download or references.

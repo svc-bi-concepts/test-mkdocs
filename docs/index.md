@@ -8,7 +8,9 @@ This tutorial walks you through setting up a scalable, cloud-based data platform
 - **dbt cloud** for data transformation
 - **Fivetran** for data ingestion
 
-You'll learn how to integrate these tools efficiently, automate workflows, and ensure high-quality analytics data.
+Of course, these tools are far more capable than described above.
+
+You'll learn how to integrate these tools efficiently and give you the foundations on how to provide high-quality analytics data.
 
 **What You'll Achieve**
 
@@ -17,3 +19,5 @@ You'll learn how to integrate these tools efficiently, automate workflows, and e
 - Set up CI/CD and version control for analytics.
 - Implement data observability for quality assurance.
 - Build dashboards and reports with structured insights.
+
+**Get Started Here: [Snowflake Setup](snowflake-setup.md)** 🚀
