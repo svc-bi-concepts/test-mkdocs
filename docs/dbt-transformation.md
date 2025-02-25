@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In today’s data-driven world, organizations generate vast amounts of information from various sources—transactional systems, IoT devices, third-party APIs, and more. However, raw data alone is **not enough**. Without proper curation, governance, and accessibility, businesses struggle with **inconsistent reports, poor data quality, and unscalable analytics workflows**.
+In today’s data-driven world, organizations generate vast amounts of information from various sources—transactional systems, IoT devices, third-party APIs, and more. However, raw data alone is **not enough**. Without proper curation, governance, and accessibility, businesses struggle with **inconsistent reporting, poor data quality, and unscalable analytics workflows**.
 
 This is where **data warehousing** plays a crucial role. A modern data warehouse, built on platforms like **Snowflake**, acts as a **central repository** for structured and semi-structured data, ensuring **consistency, security, and efficiency** in analytics and decision-making.
 
@@ -90,7 +90,7 @@ Before starting with dbt transformations, we need to add some more configuration
                 +schema: dm
     ```
 
-4. Add under macros the folloing code into the file .macros/generate_schema_name.sql
+4. Add under macros the following code into the file .macros/generate_schema_name.sql
 
     ```sql
     {% macro generate_schema_name(custom_schema_name, node) -%}
@@ -146,7 +146,7 @@ Now, let's define our data sources within dbt.
         - name: raw_items
           description: Items included in an order
         - name: raw_stores
-          description: All stores in from jaffle shop
+          description: All stores from jaffle shop
         - name: raw_products
           description: One record per SKU for items sold in stores
         - name: raw_supplies
@@ -175,7 +175,7 @@ Staging models help transform raw data into structured formats.
 
 2. **Define a basic transformation**:
 
-    Add the following code to your stagin folder files:
+    Add the following code to your staging folder files:
 
     ??? example "./staging/stg_customers.sql"
         ```sql linenums="1"

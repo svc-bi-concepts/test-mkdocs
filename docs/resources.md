@@ -24,6 +24,7 @@ Below are key resources and references for each platform covered in the hands-on
 - [YouTube: dbt-labs (Jeremy Cohen)](https://www.youtube.com/@dbt-labs){:target="_blank" rel="noopener"}
 - [dbt Documentation](https://docs.getdbt.com/){:target="_blank" rel="noopener"}
 - [dbt Online Training](https://learn.getdbt.com/catalog){:target="_blank" rel="noopener"}
+- [dbt expectations](https://hub.getdbt.com/calogica/dbt_expectations/latest/){:target="_blank" rel="noopener"}
 
 ---
 

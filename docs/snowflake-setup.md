@@ -92,7 +92,7 @@ Now you can see the standard **Snowflake UI**.
 
 ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig1.png)
 
-1. Find your account **url** & **locater** and note them down. Click on your initals in the bottom left corner.
+1. Find your account **url** & **locater** and note them down. Click on your initials in the bottom left corner.
 
     ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig2.png)
 
@@ -216,6 +216,6 @@ Let’s explore the **Snowflake UI**.
 
 ## Next Steps
 
-Now that we have our **user**, the **databases** and a **warehouse** set up, we are ready to move on to **data transformation with dbt cloud**.
+Now that we have our **user**, the **databases** and a **warehouse** set up, we are ready to move on to **data transformation with dbt Cloud**.
 
  **Continue to the next section: [dbt Cloud Setup](dbt-setup.md)** 🚀
