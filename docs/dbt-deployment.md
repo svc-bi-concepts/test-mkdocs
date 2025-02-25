@@ -6,7 +6,7 @@ Deploying dbt models effectively ensures that transformations run on a **schedul
 
 Additionally, **documentation** serves as a **single source of truth**, helping teams understand **data lineage, model definitions, and test coverage**.
 
-At the moment, the Explore section of dbt Cloud is empty. Let's **deploy our models** and **generate documentation** to populate it.
+At the moment, the Explore section in dbt Cloud is empty. Let's **deploy our models** and **generate documentation** to populate it.
 
 ![dbt Cloud Explore Section](./assets/screenshots/dbtDoc/dbtDoc1.png) 
 ---
@@ -76,7 +76,7 @@ Go to the **Explore** section to view the documentation.
 
 ![dbt Production Deploy Job](./assets/screenshots/dbtDoc/dbtDoc12.png)
 
-As we have not yet added a lot of .yml files, tests and other features, the documentation is not very detailed. But this will get richer as we add more features to our dbt project.
+Since we haven’t added many .yml files, tests, or other features yet, the documentation is not very detailed. But this will get richer as we add more features to our dbt project.
 
 ---
 

@@ -7,7 +7,7 @@ Once our data has been **ingested, transformed, and validated**, the next step i
 
 By the end of this section, you will:
 
-- Have a **fully built in Snowflake dashboard**  
+- Have a **fully built dashboard in Snowflake**  
 - Use **interactive charts** for business analysis  
 
 
@@ -33,13 +33,13 @@ To start visualizing your data:
 
    ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz4.png)
 
-Go to the next step to create a tile (chart) for the dashboard.
+Proceed to the next step to create a tile (chart) for the dashboard.
 
 ---
 
-## 2. Creating a Tile (Chart) to the Dashboard
+## 2. Creating a Tile (Chart) for the Dashboard
 
-1. Enter your SQL query in the **SQL Worksheet** and rename the sheet on the top in the middle.
+1. Enter your SQL query in the **SQL Worksheet** and rename the sheet at the top in the middle.
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz5.png)
 
@@ -58,7 +58,7 @@ FROM DM.ORDERS;
 
 2. **Click "Run"** to preview the results.
 
-    Run the query by hitting on Win CTRL + Enter, Mac CMD + Enter or by clicking on the **Run** button on the top right.
+    Run the query by pressing on Win CTRL + Enter, Mac CMD + Enter or by clicking the **Run** button in the top right.
 
 ---
 
@@ -78,7 +78,7 @@ FROM DM.ORDERS;
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz7.png)
 
-Repeat the process to add more tiles to the dashboard.
+Repeat this process to add more tiles to your dashboard.
 
 ---
 
@@ -86,15 +86,15 @@ Repeat the process to add more tiles to the dashboard.
 
 1. **Select a Tile** and **Edit Query**.
 
-    If you select the filter icon on the top left, 
+    If you select the filter icon in the top left, 
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz8.png)
 
-    you can see which filters are available by default 
+    you can see which filters are available by default, 
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz9.png)
 
-    and the option to add your custom filters.
+    along with the option to add your custom filters.
 
 
 
@@ -113,16 +113,16 @@ Repeat the process to add more tiles to the dashboard.
 2. **Return to your Dashboard** and repeat that process for other tiles to add filters.
 
     !!! note "Dashboard Filters"
-        Filters can be applied to multiple tiles, allowing users to interactively explore data. You can control the filter on the top left.
+        Filters can be applied to multiple tiles, allowing users to interactively explore data. You can control the filter at the top left.
         
         ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz11.png)
 
-3. **Customize the layout** by dragging and resizing tiles for better clarity. Congratulations on building your first Snowflake dashboard.
+3. **Customize the layout** by dragging and resizing tiles for better clarity. Congratulations on building your first Snowflake dashboard!
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz12.png)
 
 ✅ **Your dashboard is now live and interactive!**  
-Users can **filter, explore, and share insights** directly within Snowflake.
+Users can **filter, explore and share insights** directly within Snowflake.
 
 
 

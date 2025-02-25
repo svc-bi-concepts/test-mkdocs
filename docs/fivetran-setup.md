@@ -11,11 +11,11 @@ Fivetran is a cloud-based data integration platform that enables automated data 
 
     ![Fivetran Email Verification](./assets/screenshots/ftSetup/ftSetup2.png)
 
-3. Verify your email via the confirmation link your received in your inbox - **Verify my email**.
+3. Verify your email via the confirmation link you received in your inbox - **Verify my email**.
 
     ![Fivetran Email Verification](./assets/screenshots/ftSetup/ftSetup3.png)
 
-4. After email verification, complete the form with your username and password. Also agreed to Fivetran's terms and conditions. Click **Get Started**.
+4. After email verification, complete the form with your username and password. Also, agree to Fivetran's terms and conditions. Click **Get Started**.
 
     ![Fivetran Email Verification](./assets/screenshots/ftSetup/ftSetup4.png)
 
@@ -31,7 +31,7 @@ Fivetran is a cloud-based data integration platform that enables automated data 
 ## 2. Setup a Google Drive Connector
 Fivetran enables automated data ingestion from Google Drive.
 
-1. Select **Google Drive** as your data source. You have to select now three connectors you are interested in, please add the Google Drive connector. For the residual 2, feel free to choose any connector.
+1. Select **Google Drive** as your data source. You have to select now three connectors you are interested in, please add the Google Drive connector. For the residual two, feel free to choose any connector.
 
     ![Fivetran Connector Selection](./assets/screenshots/ftSetup/ftSetup7.png)
 
@@ -100,7 +100,7 @@ Connector configuration is set up - go to the next step.
     ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup15.png)
 
 
-3. **Continue** and click away any pop-ups.
+3. **Continue** and dismiss any pop-ups.
 
 
 
@@ -126,7 +126,7 @@ Once connected, start syncing data from **Google Drive to Snowflake**.
 
     ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup19.png)
 
-!!! note "Turn Fivetran Sync off"
+!!! note "Disable Fivetran Sync"
     Feel free to turn off the sync on the top right corner. ``ENABLED`` should be switched to ``PAUSED``.
 
 

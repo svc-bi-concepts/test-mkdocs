@@ -52,7 +52,7 @@ This command will:
 - Identify any failing records.
 - Provide a summary of passed/failed tests.
 
-Example Output:
+Example output:
 
 Timestamp | Status |
 --- | --- |
@@ -67,7 +67,7 @@ Timestamp | Status |
 
 ## 3. Add data quality tests
 
-Add data quality tests to your dbt project into the source.yml file
+Add data quality tests to your dbt project in the source.yml file
 
 ```yaml
 version: 2
@@ -107,7 +107,7 @@ sources:
       - name: raw_items
         description: Items included in an order
       - name: raw_stores
-        description: All stores in from jaffle shop
+        description: All stores from jaffle shop
       - name: raw_products
         description: One record per SKU for items sold in stores
       - name: raw_supplies
@@ -143,7 +143,7 @@ dbt test
 ```
 ![dbt test](./assets/screenshots/dbtTest/dbtTest1.png)
 
-Great, all tests passed!🎉
+Great! All tests passed!🎉
 
 Commit the changes to your repository. Add a commit message `Add data quality tests`.
 
@@ -177,7 +177,7 @@ models:
 
 - error_if: ">50" → Fails if order_total exceeds 50
 - warn_if: ">0" → Raises a warning if order_total is greater than 0
-- where: "status IN ('completed', 'shipped')" → Applies only to completed & shipped orde
+- where: "status IN ('completed', 'shipped')" → Applies only to completed & shipped orders
 
 
 ---

@@ -17,7 +17,7 @@
 
       ![dbt Cloud Email Verification](./assets/screenshots/dbtSetup/dbtSetup3.png)
 
-   3. Account setup complete! You can close any pop ups that might appear.
+   3. Account setup complete! You can dismiss any pop-ups that might appear.
 
       ![dbt Cloud Account Setup](./assets/screenshots/dbtSetup/dbtSetup4.png)
 
@@ -75,7 +75,7 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
 ---
 
 ## 4. Setup the Project Repository to complete the Project Setup
-   For simplicity reasons, we are going to use the dbt Cloud IDE to manage our project repository.
+   For simplicity, we are going to use the dbt Cloud IDE to manage our project repository.
 
    1. Select **Managed** and add a name for your repository.
 
@@ -112,15 +112,13 @@ The initialization creates the following project structure:
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup16.png)
 
-   2. **Intialize dbt project** by clicking on the bottom on the top left.
+   2. **Initialize dbt project** by clicking on the button on the top left.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup17.png)
 
    3. Initialization comes with an example model, which we do not care about. **Delete** the example model `.models/example`.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup18.png)
-
-      Hit **Delete**.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup19.png)
 
@@ -132,7 +130,7 @@ The initialization creates the following project structure:
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup21.png)
 
-   5. **Success** - Your dbt project is now ready for development.
+   5. **Success** - your dbt project is now ready for development.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup22.png)
 
