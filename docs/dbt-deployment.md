@@ -4,7 +4,7 @@
 
 Deploying dbt models effectively ensures that transformations run on a **scheduled basis**, providing fresh and reliable data to downstream analytics.
 
-Additionally, **documentation** serves as a **single source of truth**, helping teams understand **data lineage, model definitions, and test coverage**.
+Additionally, **documentation** serves as a **centralized source of truth**, helping teams understand **data lineage, model definitions, and test coverage**.
 
 At the moment, the Explore section in dbt Cloud is empty. Let's **deploy our models** and **generate documentation** to populate it.
 
@@ -13,7 +13,7 @@ At the moment, the Explore section in dbt Cloud is empty. Let's **deploy our mod
 
 ## 1. Setting Up a Production Environment
 
-A production environment ensures that **only tested, validated models** are exposed to analysts.
+A production environment ensures that **only tested, validated models** are exposed to analysts and end consumers (Tableau, PowerBI, Excel, etc.).
 
 ### **Steps to Set Up a Production Environment**
 1. **Go to dbt Cloud** → Click **Deploy** > **Environments**.
@@ -28,9 +28,9 @@ A production environment ensures that **only tested, validated models** are expo
 
     ![dbt Production Environment](./assets/screenshots/dbtDoc/dbtDoc3.png)
 
-3. **Test the Connection** to ensure successful setup.
+3. **Test the Connection** to ensure a successful setup.
 
-        ![dbt Production Environment](./assets/screenshots/dbtDoc/dbtDoc4.png)
+    ![dbt Production Environment](./assets/screenshots/dbtDoc/dbtDoc4.png)
 
 4. **Save** the environment.
 
@@ -49,7 +49,7 @@ Select `Deploy job`
 Add the following details:
 
 - **Job name**: `PRD`
-- **Environment**: `Prod`
+- **Environment**: `PRD`
 - **Generate docs on run**: [x]
 
     ![dbt Production Deploy Job](./assets/screenshots/dbtDoc/dbtDoc7.png)
@@ -76,7 +76,7 @@ Go to the **Explore** section to view the documentation.
 
 ![dbt Production Deploy Job](./assets/screenshots/dbtDoc/dbtDoc12.png)
 
-Since we haven’t added many .yml files, tests, or other features yet, the documentation is not very detailed. But this will get richer as we add more features to our dbt project.
+Since we haven’t added many `<schema>.yml` files, tests, or other features yet, the documentation is not very detailed. But this will get richer as we add more features to our dbt project.
 
 ---
 

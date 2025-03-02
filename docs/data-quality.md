@@ -12,7 +12,7 @@ dbt provides built-in test types and supports custom tests through packages like
 
 In dbt, tests are defined within the `schema.yml` files alongside the models they validate. Create a schema.yml file in the staging folder.
 
-### **Example: Basic Tests on the `stg_orders` Model in the staging schema**
+**Example: Basic Tests on the `stg_orders` Model in the staging schema**
 ```yaml title="./models/staging/staging.yml" linenums="1" hl_lines="7-9 12-15"
 models:
     - name: stg_orders
@@ -36,36 +36,12 @@ models:
     - not_null: Ensures order_total and order_id have no missing values
     - accepted_range: Ensures order_total is always ≥ 0 (i.e., no negative totals)
 
----
 
-## 2. Running Tests
-
-Once tests are defined, they can be executed with:
-
-```bash
-dbt test
-```
-
-This command will:
-
-- Validate all tests in the project.
-- Identify any failing records.
-- Provide a summary of passed/failed tests.
-
-Example output:
-
-Timestamp | Status |
---- | --- |
-16:12:45 | 1 of 3 PASS unique test on stg_orders.order_id
-16:12:45 | 2 of 3 PASS not_null test on stg_orders.order_total
-16:12:45 | 3 of 3 FAIL accepted_range test on stg_orders.order_total
-
-❌ A failure on accepted_range means there are negative order totals that need fixing.
 
 ---
 
 
-## 3. Add data quality tests
+## 2. Add data quality tests
 
 Add data quality tests to your dbt project in the source.yml file
 
@@ -114,9 +90,10 @@ sources:
         description: One record per supply per SKU of items sold in stores
 ```
 
+
 ---
 
-## 4. Add dbt-expectations for advanced testing
+## 3. Add dbt-expectations for advanced testing
 
 Add package dbt-expectations to your packages.yml file
 
@@ -136,13 +113,37 @@ dbt deps
 
 See all the tests available in the dbt-expectations package [here](https://hub.getdbt.com/calogica/dbt_expectations/latest/){target=_blank}.
 
+
 ---
 
-## 5. Run the tests with:
+## 5. Running Tests
+
+Running dbt tests is as simple as adding the below code to the command line and run it with `Cmd + Enter` on Mac or `Ctrl + Enter` in Windows. Execute the command below:
 
 ```bash
 dbt test
 ```
+---
+This command will:
+
+- Validate all tests in the project.
+- Identify any failing records.
+- Provide a summary of passed/failed tests.
+
+Example output:
+
+Timestamp | Status |
+--- | --- |
+16:12:45 | 1 of 3 PASS unique test on stg_orders.order_id
+16:12:45 | 2 of 3 PASS not_null test on stg_orders.order_total
+16:12:45 | 3 of 3 FAIL accepted_range test on stg_orders.order_total
+
+❌ A failure on accepted_range means there are negative order totals that need fixing.
+
+---
+
+In our case, you should see the following results:
+
 ![dbt test](./assets/screenshots/dbtTest/dbtTest1.png)
 
 Great! All tests passed!🎉
@@ -155,11 +156,11 @@ Commit the changes to your repository. Add a commit message `Add data quality te
 ---
 ## 6. Advanced Granular Test Configuration
 
-dbt allows defining granular conditions within test configurations. This ensures flexibility and targeted validation for business rules.
+dbt allows defining granular conditions within test configurations. This ensures flexibility and targeted validation for business rules. If you like, you can also add this logic in your code in a new file `./marts/staging/staging.yml`.
 
 **Example: Conditional Severity for order_total**
 
-```yaml title="Granular Testing" linenums="1" hl_lines="5-11"
+```yaml title="Granular Testing " linenums="1" hl_lines="5-11"
 
 models:
   - name: stg_orders
@@ -183,22 +184,9 @@ Dynamic thresholds:
 
 
 ---
-## 7. Handling Test Failures
+## 7. Tip for Handling Test Failures
 
-When a test fails, dbt provides detailed logs with failing records.
-
-- Identifying Failed Records
-- Use --store-failures to persist failed tests in the database:
-- dbt test --store-failures
-- Results are stored in the dbt_test__audit schema for further investigation.
-
-Example: Investigating Failures
-```sql
-SELECT *
-FROM analytics.dbt_test__audit.failed_tests
-WHERE test_name = 'accepted_range_test'
-```
-
+When a test fails, dbt provides detailed logs with failing records. You can let dbt add this information into snowflake to identify failed records. More information [here](https://docs.getdbt.com/reference/resource-configs/store_failures){target=_blank}.
 
 This helps teams quickly identify, debug, and fix data issues.
 
@@ -207,4 +195,3 @@ This helps teams quickly identify, debug, and fix data issues.
 By integrating dbt’s testing capabilities, we can automate data validation and prevent bad data from entering downstream reports.
 
 🔗 Continue to: 🔗 **Continue to:** [dbt Documentation & Deployment](dbt-deployment.md)
-

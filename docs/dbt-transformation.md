@@ -4,7 +4,7 @@
 
 In today’s data-driven world, organizations generate vast amounts of information from various sources—transactional systems, IoT devices, third-party APIs, and more. However, raw data alone is **not enough**. Without proper curation, governance, and accessibility, businesses struggle with **inconsistent reporting, poor data quality, and unscalable analytics workflows**.
 
-This is where **data warehousing** plays a crucial role. A modern data warehouse, built on platforms like **Snowflake**, acts as a **central repository** for structured and semi-structured data, ensuring **consistency, security, and efficiency** in analytics and decision-making.
+This is where **data warehousing** plays a crucial role. A modern data warehouse, built on platforms like **Snowflake**, acts as a **central repository** for structured, semi-structured and unstructured data, ensuring **consistency, security, and efficiency/automation** in analytics and decision-making.
 
 ### **Key Benefits of a Data Warehouse**
 ✅ **Data Curation & Standardization** – Transform raw data into well-modeled, analytics-ready datasets  
@@ -40,7 +40,7 @@ Before starting with dbt transformations, we need to add some more configuration
 
 3. **Modify** `dbt_project.yml`:
 
-    ```yaml
+    ```yaml title="dbt_project.yml"
 
     # Name your project! Project names should contain only lowercase characters
     # and underscores. A good package name should reflect your organization's
@@ -90,9 +90,9 @@ Before starting with dbt transformations, we need to add some more configuration
                 +schema: dm
     ```
 
-4. Add under macros the following code into the file .macros/generate_schema_name.sql
+4. Add under macros the following code into the file ./macros/generate_schema_name.sql
 
-    ```sql
+    ```sql title="./macros/generate_schema_name.sql"
     {% macro generate_schema_name(custom_schema_name, node) -%}
         {%- set default_schema = target.schema -%}
         {%- if custom_schema_name is none or target.name == 'PRD' -%}
@@ -118,7 +118,7 @@ This macro will be used to generate the schema name for the tables and views tha
 
 ## 2. Define Data Sources
 
-Now, let's define our data sources within dbt.
+Now, let's define our data sources within dbt. This helps dbt to understand, which data tables from where (database, schema) we will be using.
 
 1. **Create a new folder**:  
    ```
@@ -155,12 +155,57 @@ Now, let's define our data sources within dbt.
 
 4. **Commit the changes**. Add a message like `dbt source definition`.
 
+??? tip "Bonus: Automate this step in the future"
+    In dbt, there is a concept of packages that allows you to use macros for automation. dbt can generate the above source.yml file.
+
+    1. Add in the root directory (upper most level) a file called `packages.yml`.
+
+    2. Insert the below code snippet to define the required codegen (code generator) package.
+    ```yml title="packages.yml"
+    packages:
+    - package: dbt-labs/codegen
+      version: 0.13.1
+
+    ```
+
+    3. Run `dbt deps` in the command line, to install the package we just defined.
+
+
+    4. Run the generate_source macro in the command line bar on the bottom to make it create the source.yml content.
+
+        ```bash
+        dbt run-operation generate_source --args '{
+            "database_name": "PSA",
+            "schema_name": "JAFFLE_SHOP",
+            "generate_columns": true,
+            "include_descriptions": true,
+            "include_data_types": true
+            }'
+        ```
+        For more details about codegen, refer to the [documentation](https://hub.getdbt.com/dbt-labs/codegen/latest/){:target="_blank" rel="noopener"}.
+
+        ![dbt codegen](./assets/screenshots/dbtTrans/dbtTrans11.png)
+
+    5. After the successful run, we will copy the output into a new source.yml file, in the folder staging. If it does not yet exist.
+
+        ![dbt codegen](./assets/screenshots/dbtTrans/dbtTrans12.png)
+
+        ![dbt codegen](./assets/screenshots/dbtTrans/dbtTrans13.png)
+
+        Open the `System Logs`, select `Details` and scroll down until you find the .yml section.
+
+        ![dbt codegen](./assets/screenshots/dbtTrans/dbtTrans14.png)
+
+        ![dbt codegen](./assets/screenshots/dbtTrans/dbtTrans15.png)
+
+        Copy the snippet and paste it in a new file `./models/staging/source.yml`.
+
 
 ---
 
 ## 3. Build Staging Models
 
-Staging models help transform raw data into structured formats.
+Staging models are the initial data warehouse layer to transform raw data into more structured & clean formats.
 
 1. **Create SQL files in the `staging` folder**:
    ```
