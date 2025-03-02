@@ -10,10 +10,10 @@ dbt provides built-in test types and supports custom tests through packages like
 
 ## 1. Defining Data Quality Tests
 
-In dbt, tests are defined within the `schema.yml` files alongside the models they validate.
+In dbt, tests are defined within the `schema.yml` files alongside the models they validate. Create a schema.yml file in the staging folder.
 
-### **Example: Basic Tests on the `stg_orders` Model**
-```yaml
+### **Example: Basic Tests on the `stg_orders` Model in the staging schema**
+```yaml title="./models/staging/staging.yml" linenums="1" hl_lines="7-9 12-15"
 models:
     - name: stg_orders
       description: "Staging model for orders"
@@ -69,7 +69,7 @@ Timestamp | Status |
 
 Add data quality tests to your dbt project in the source.yml file
 
-```yaml
+```yaml title="./models/staging/source.yml" linenums="1" hl_lines="13-15 20-22 24-28 30-34"
 version: 2
 
 sources:
@@ -120,7 +120,7 @@ sources:
 
 Add package dbt-expectations to your packages.yml file
 
-```yaml
+```yaml title="./packages.yml" linenums="1" hl_lines="4-5"
 packages:
   - package: dbt-labs/dbt_utils
     version: [">=1.0.0", "<2.0.0"]
@@ -133,6 +133,8 @@ Run dbt deps to install the package
 ```bash
 dbt deps
 ```
+
+See all the tests available in the dbt-expectations package [here](https://hub.getdbt.com/calogica/dbt_expectations/latest/){target=_blank}.
 
 ---
 
@@ -157,7 +159,7 @@ dbt allows defining granular conditions within test configurations. This ensures
 
 **Example: Conditional Severity for order_total**
 
-```yaml
+```yaml title="Granular Testing" linenums="1" hl_lines="5-11"
 
 models:
   - name: stg_orders
@@ -173,7 +175,7 @@ models:
 
 ```
 
-✅ Dynamic thresholds:
+Dynamic thresholds:
 
 - error_if: ">50" → Fails if order_total exceeds 50
 - warn_if: ">0" → Raises a warning if order_total is greater than 0

@@ -41,17 +41,17 @@ Fivetran enables automated data ingestion from Google Drive.
 
 2. Select or search for Google Drive.
 
-   ![Fivetran Connector Selection](./assets/screenshots/ftSetup/ftSetup8.png)
+    ![Fivetran Connector Selection](./assets/screenshots/ftSetup/ftSetup8.png)
 
+    Let's first set up our connector.
+
+    ![Select connector](./assets/screenshots/ftSetup/ftSetup9.png)
 
 3. Fill out the connector requirements (find here the docs for the [Google Drive connector](https://fivetran.com/docs/connectors/files/google-drive/setup-guide)):
 
     - **Destination schema**: ```jaffle_shop```
     - **Folder URL**: ```https://drive.google.com/drive/u/0/folders/1Z_U_6SVP6vWXGJWHu9Fl_uUjieyVjaWX```
-    - **Data processing location**: ```EU```
-    - **Fivetran processing cloud provider**: ```AWS```
-
-    ![Google Drive Connection](./assets/screenshots/ftSetup/ftSetup9.png)
+    
 
     Desired state:
 
@@ -65,31 +65,37 @@ Fivetran enables automated data ingestion from Google Drive.
 
     Click **Continue**.
 
-Connector configuration is set up - go to the next step.
+Connector configuration is set up - go to the next step and add Snowflake as our destination.
 
 ---
 
 ## 3. Configure Snowflake as the Destination
-1. Select **Snowflake** as your destination.
+1. Select **Destinations** to connect Fivetran with Snowflake.
 
     ![Fivetran Connector Selection](./assets/screenshots/ftSetup/ftSetup12.png)
 
+    **Add destination**.
+
     ![Fivetran Connector Selection](./assets/screenshots/ftSetup/ftSetup13.png)
 
+    Select **Snowflake**.
 
-2. Fill in the required information:
-    - **Snowflake Account URL** (e.g. `<account>.snowflakecomputing.com/`| `kg10297.eu-central-2.aws.snowflakecomputing.com`)
+    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup14.png)
+
+2. Fill in the required information (Connection details from Snowflake and additional Fivetran configuration):
+    - **Snowflake Account URL** (example: Snowfakes Account/Server URL `<org_name>-<account_name>.snowflakecomputing.com/` | `BYELBTA-MV59868.snowflakecomputing.com`)
     - **Snowflake USER**: `<username>`
     - **Database**: `PSA`
     - **Auth**: set to `PASSWORD`
+    - **Role**: `ACCOUNTADMIN`
     - **Password**: `<password>`
-    - **Data processing location**: ```EU```
-    - **Fivetran processing cloud provider**: ```AWS```
+    - **Data processing location**: `EU`
+    - **Fivetran processing cloud provider**: `AWS`
     - **Time Zone**: `UTC`
 
     Desired state:
 
-    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup14.png)
+    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup15.png)
 
     - Click **Save & Test**.
 
@@ -97,10 +103,15 @@ Connector configuration is set up - go to the next step.
     
     - **All connection tests passed!**
 
-    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup15.png)
+    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup16.png)
 
 
-3. **Continue** and dismiss any pop-ups.
+3. **View Destination** and in the top right, select **View** for the `jaffle_shop`.
+
+    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup17.png)
+
+
+    ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup18.png)
 
 
 
@@ -111,23 +122,29 @@ Once connected, start syncing data from **Google Drive to Snowflake**.
 
 1. Click **Start Initial Sync**.
 
-    ![Initial Sync](./assets/screenshots/ftSetup/ftSetup16.png)
+    ![Initial Sync](./assets/screenshots/ftSetup/ftSetup19.png)
 
 
 2. Monitor progress in the Fivetran dashboard by refreshing the browser from time to time (duration ~1 min).
 
-    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup17.png)
+    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup20.png)
 
-    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup18.png)
+    On hover, you can see the details of the load process.
 
+    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup21.png)
 
 
 3. Once complete, verify that data is ingested into **Snowflake** under the `PSA` (Persistent Staging Area) database.
 
-    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup19.png)
+    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup22.png)
 
 !!! note "Disable Fivetran Sync"
     Feel free to turn off the sync on the top right corner. ``ENABLED`` should be switched to ``PAUSED``.
+
+    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup23.png)
+
+    ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup24.png)
+
 
 
 

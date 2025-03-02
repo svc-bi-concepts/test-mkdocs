@@ -92,10 +92,15 @@ Now you can see the standard **Snowflake UI**.
 
 ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig1.png)
 
-1. Find your account **url** & **locater** and note them down. Click on your initials in the bottom left corner.
+1. Find your account **Account/Server URL** & **Full Account Locator** and note them down in the `download.txt` from the top of this page. Click on your initials in the bottom left corner.
 
     ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig2.png)
 
+    **View account details**
+
+    ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig2z1.png)
+
+    Note down the `Full Account Locator` and the `Account/Server URL`
 
     ![Snowflake UI Start](./assets/screenshots/SnowflakeConfig/SnowflakeConfig3.png)
 

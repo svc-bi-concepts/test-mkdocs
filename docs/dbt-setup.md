@@ -37,6 +37,21 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
 
    3. Fill out the form.
 
+!!! warning "Make sure the full account locator is correct"
+
+      Snowflake's account locators might be different from the previousl versions. Make sure to check your snowflake account locator has no **AWS_** in the middle. If it does, remove it.
+      
+      Ideally, it would look like this: kg10297[^1].eu_central_2.aws[^2]
+
+      Not kg10297.**aws_**eu_central_2.aws
+      [^1]: kg10297 is the account locator
+      [^2]: eu_central_2 is the region
+
+   - Connection name: `Snowflake_HWZ`
+   - Your full account locator
+   - Database (Target in Snowflake): `Analytics`
+   - Warehouse: `Transformer`
+
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup7.png)
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup8.png)
@@ -58,13 +73,14 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
    2. Enter the required Snowflake credentials:
       - Username from your snowflake account
       - Password from your snowflake account
-      - Schema (leave the default)
-      - Target name (leave: default)
-      - Threads set to 16 (XS Warehouse starts with 8 threads)
+      - Schema (leave the default: dbt_<yourname>)
+      - Target name (leave: `default`)
+      - Threads: `16` [^3]
+      [^3]: Not essential, but good practice as we do not want to artificially limit Snowflakes capabilities. The smallest warehouse starts with 8 threads.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup10.png)
 
-      **Test Connection** to verify the connection.
+      **Test Connection** to verify the connection between dbt Cloud and Snowflake works.
 
    3. Save Development credentials if successful.
 
@@ -77,7 +93,7 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
 ## 4. Setup the Project Repository to complete the Project Setup
    For simplicity, we are going to use the dbt Cloud IDE to manage our project repository.
 
-   1. Select **Managed** and add a name for your repository.
+   1. Select **Managed** and add a name for your repository. `analytic-hwz` for example.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup12.png)
 
@@ -93,7 +109,7 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
 
 ## 5. Initialize your Analytics Project
 
-The initialization creates the following project structure:
+The initialization creates the following project base structure:
 
       📦 your_dbt_project
       ├── 📂 analyses
@@ -112,11 +128,11 @@ The initialization creates the following project structure:
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup16.png)
 
-   2. **Initialize dbt project** by clicking on the button on the top left.
+   2. **Initialize dbt project** by clicking on the button in the top left.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup17.png)
 
-   3. Initialization comes with an example model, which we do not care about. **Delete** the example model `.models/example`.
+   3. Initialization comes with an example model, which we do not care about. **Delete** the example model `./models/example`.
 
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup18.png)
 

@@ -20,4 +20,7 @@ You'll learn how to integrate these tools efficiently and provide you with the f
 - Implement data observability for quality assurance.
 - Build dashboards and reports with structured insights.
 
+!!! warning "Browser "
+    This tutorial has been tested based on **Google Chrome** :fontawesome-brands-chrome:. It may be, that certain platforms do not work entirely flawless with other browsers.
+
 **Get Started Here: [Snowflake Setup](snowflake-setup.md)** 🚀
