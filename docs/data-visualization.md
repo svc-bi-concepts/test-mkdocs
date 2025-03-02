@@ -56,7 +56,11 @@ SELECT
 FROM DM.ORDERS;
 ```
 
+
 ??? example "Additional Examples"
+
+     Please, adapt `FROM ANALYTICS.DBT_BSALADIN_DM.<Table>` to your schema or use `FROM ANALYTICS.DM.<Table>`.
+
     **KPIs**
     ```sql title="KPI: Total Revenue"
     SELECT 
