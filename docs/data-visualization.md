@@ -43,7 +43,7 @@ Proceed to the next step to create a tile (chart) for the dashboard.
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz5.png)
 
-```sql title="KPI Tota Revenue"
+```sql title="KPI Total Revenue"
 SELECT
     SUM(ORDER_TOTAL) AS total_revenue
 FROM orders;
@@ -51,53 +51,48 @@ FROM orders;
  or if you want to be more explicit:
 
 ```sql title="KPI Total Revenue"
-SELECT
-    SUM(ORDER_TOTAL) AS total_revenue
-FROM DM.ORDERS;
+SELECT 
+    SUM(ORDER_TOTAL) AS TOTAL_REVENUE
+FROM ANALYTICS.DM.ORDERS;
 ```
 
 
 ??? example "Additional Examples"
 
-     Please, adapt `FROM ANALYTICS.DBT_BSALADIN_DM.<Table>` to your schema or use `FROM ANALYTICS.DM.<Table>`.
+    Please, adapt `FROM ANALYTICS.DM.<Table>` to your schema.
 
     **KPIs**
-    ```sql title="KPI: Total Revenue"
-    SELECT 
-        SUM(ORDER_TOTAL) AS TOTAL_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS;
-    ```
-
     ```sql title="KPI: Total Customers"
     SELECT 
         COUNT(DISTINCT CUSTOMER_ID) AS TOTAL_CUSTOMERS
-    FROM ANALYTICS.DBT_BSALADIN_DM.CUSTOMERS;
+    FROM ANALYTICS.DM.ORDERS;
     ```
 
     ```sql title="KPI: Total Orders"
     SELECT 
         COUNT(*) AS TOTAL_ORDERS
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS;
+    FROM ANALYTICS.DM.ORDERS;
     ```
 
     ```sql title="KPI: Average Order Value (AOV)"
     SELECT 
         SUM(ORDER_TOTAL) / NULLIF(COUNT(*), 0) AS AVG_ORDER_VALUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS;
+    FROM ANALYTICS.DM.ORDERS;
     ```
 
     ```sql title="KPI: Repeat Customer Rate"
     SELECT 
         COUNT(CASE WHEN COUNT_LIFETIME_ORDERS > 1 THEN CUSTOMER_ID END) * 100.0 
         / COUNT(*) AS REPEAT_CUSTOMER_RATE
-    FROM ANALYTICS.DBT_BSALADIN_DM.CUSTOMERS;
+    FROM ANALYTICS.DM.CUSTOMERS;
     ```
+
     **Line Charts**
     ```sql title="Line Chart: Revenue Trend (Daily)"
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         SUM(ORDER_TOTAL) AS DAILY_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS
+    FROM ANALYTICS.DM.ORDERS
     GROUP BY ORDER_DATE
     ORDER BY ORDER_DATE;
     ```
@@ -106,7 +101,7 @@ FROM DM.ORDERS;
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         COUNT(*) AS DAILY_ORDERS
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS
+    FROM ANALYTICS.DM.ORDERS
     GROUP BY ORDER_DATE
     ORDER BY ORDER_DATE;
     ```
@@ -116,28 +111,12 @@ FROM DM.ORDERS;
         DATE_TRUNC('MONTH', FIRST_ORDERED_AT) AS MONTH,
         COUNT(CASE WHEN COUNT_LIFETIME_ORDERS = 1 THEN CUSTOMER_ID END) AS NEW_CUSTOMERS,
         COUNT(CASE WHEN COUNT_LIFETIME_ORDERS > 1 THEN CUSTOMER_ID END) AS RETURNING_CUSTOMERS
-    FROM ANALYTICS.DBT_BSALADIN_DM.CUSTOMERS
+    FROM ANALYTICS.DM.CUSTOMERS
     GROUP BY MONTH
     ORDER BY MONTH;
     ```
-    **Bar Charts**
-    ```sql title="Bar Chart: Revenue by Customer Type"
-    SELECT 
-        CUSTOMER_TYPE,
-        SUM(LIFETIME_SPEND) AS TOTAL_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.CUSTOMERS
-    GROUP BY CUSTOMER_TYPE
-    ORDER BY TOTAL_REVENUE DESC;
-    ```
 
-    ```sql title="Bar Chart: Revenue by Location"
-    SELECT 
-        LOCATION_ID, 
-        SUM(ORDER_TOTAL) AS LOCATION_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDERS
-    GROUP BY LOCATION_ID
-    ORDER BY LOCATION_REVENUE DESC;
-    ```
+    **Bar Charts**
 
     ```sql title="Bar Chart: Revenue by Product Category (Food vs. Drink)"
     SELECT 
@@ -147,7 +126,7 @@ FROM DM.ORDERS;
             ELSE 'Other' 
         END AS CATEGORY,
         SUM(PRODUCT_PRICE) AS TOTAL_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDER_ITEMS
+    FROM ANALYTICS.DM.ORDER_ITEMS
     GROUP BY CATEGORY
     ORDER BY TOTAL_REVENUE DESC;
     ```
@@ -157,30 +136,36 @@ FROM DM.ORDERS;
         PRODUCT_ID, 
         COUNT(*) AS TOTAL_SALES, 
         SUM(PRODUCT_PRICE) AS TOTAL_REVENUE
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDER_ITEMS
+    FROM ANALYTICS.DM.ORDER_ITEMS
     GROUP BY PRODUCT_ID
     ORDER BY TOTAL_SALES DESC
     LIMIT 10;
     ```
 
-    ```sql title="Profitability: Gross Profit by Order"
+    ```sql title="Profitability: Gross Profit by Order (Top 10)"
     SELECT 
         ORDER_ID, 
         SUM(PRODUCT_PRICE - SUPPLY_COST) AS GROSS_PROFIT
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDER_ITEMS
+    FROM ANALYTICS.DM.ORDER_ITEMS
     GROUP BY ORDER_ID
-    ORDER BY GROSS_PROFIT DESC;
+    ORDER BY GROSS_PROFIT DESC
+    LIMIT 10;
     ```
 
-    ```sql title="Profitability: Profit Margin (Overall)"
+    ```sql title="Profitability: Profit Margin Products (Top 10)"
     SELECT 
+        PRODUCT_ID,
         SUM(PRODUCT_PRICE - SUPPLY_COST) * 100.0 / SUM(PRODUCT_PRICE) AS PROFIT_MARGIN
-    FROM ANALYTICS.DBT_BSALADIN_DM.ORDER_ITEMS;
+    FROM ANALYTICS.DM.ORDER_ITEMS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY PRODUCT_ID
+    ORDER BY PROFIT_MARGIN desc
+    LIMIT 10;
     ```
 
 2. Click **Run** to preview the results.
 
-    Run the query by pressing on Win CTRL + Enter, Mac CMD + Enter or by clicking the **Run** button in the top right.
+    Run the query by pressing on **Win** `CTRL + Enter`, **Mac** `CMD + Enter` or by clicking the **Run** button in the top right.
 
 ---
 
@@ -200,7 +185,7 @@ FROM DM.ORDERS;
 
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz7.png)
 
-Repeat this process to add more tiles to your dashboard.
+Repeat this process by clicking on `+` in the top left to add more tiles to your dashboard.
 
 ---
 
@@ -225,12 +210,114 @@ Repeat this process to add more tiles to your dashboard.
     ![Create Dashboard](./assets/screenshots/SnowViz/SnowViz10.png)
 
 
-    ```sql linenums="1"
+    ```sql title="Total Revenue" linenums="1" hl_lines="4"
     SELECT
         SUM(ORDER_TOTAL) AS total_revenue
-    FROM DM.ORDERS
+    FROM ANALYTICS.DM.ORDERS
     WHERE :daterange = ordered_at;
     ```
+
+??? example "Additional Examples with filter"
+
+    Add a date field available in the table to the query.
+
+    **KPIs**
+    ```sql title="KPI: Total Revenue"
+    SELECT 
+        SUM(ORDER_TOTAL) AS TOTAL_REVENUE
+    FROM ANALYTICS.DM.ORDERS
+    WHERE :daterange = ORDERED_AT;
+    ```
+    ```sql title="KPI: Total Customers"
+    SELECT 
+        COUNT(DISTINCT CUSTOMER_ID) AS TOTAL_CUSTOMERS
+    FROM ANALYTICS.DM.ORDERS;
+    ```
+    ```sql title="KPI: Total Orders"
+    SELECT 
+        COUNT(*) AS TOTAL_ORDERS
+    FROM ANALYTICS.DM.ORDERS
+    WHERE :daterange = ORDERED_AT;
+    ```
+
+    ```sql title="KPI: Average Order Value (AOV)"
+    SELECT 
+        SUM(ORDER_TOTAL) / NULLIF(COUNT(*), 0) AS AVG_ORDER_VALUE
+    FROM ANALYTICS.DM.ORDERS
+    WHERE :daterange = ORDERED_AT;
+    ```
+
+    **Line Charts**
+    ```sql title="Line Chart: Revenue Trend (Daily)"
+    SELECT 
+        DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
+        SUM(ORDER_TOTAL) AS DAILY_REVENUE
+    FROM ANALYTICS.DM.ORDERS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY ORDER_DATE
+    ORDER BY ORDER_DATE;
+    ```
+
+    ```sql title="Line Chart: Orders Trend (Daily)"
+    SELECT 
+        DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
+        COUNT(*) AS DAILY_ORDERS
+    FROM ANALYTICS.DM.ORDERS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY ORDER_DATE
+    ORDER BY ORDER_DATE;
+    ```
+
+
+    **Bar Charts**
+
+    ```sql title="Bar Chart: Revenue by Product Category (Food vs. Drink)"
+    SELECT 
+        CASE 
+            WHEN IS_FOOD_ITEM = 1 THEN 'Food' 
+            WHEN IS_DRINK_ITEM = 1 THEN 'Drink' 
+            ELSE 'Other' 
+        END AS CATEGORY,
+        SUM(PRODUCT_PRICE) AS TOTAL_REVENUE
+    FROM ANALYTICS.DM.ORDER_ITEMS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY CATEGORY
+    ORDER BY TOTAL_REVENUE DESC;
+    ```
+
+    ```sql title="Bar Chart: Most Popular Products (Top 10)"
+    SELECT 
+        PRODUCT_ID, 
+        COUNT(*) AS TOTAL_SALES, 
+        SUM(PRODUCT_PRICE) AS TOTAL_REVENUE
+    FROM ANALYTICS.DM.ORDER_ITEMS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY PRODUCT_ID
+    ORDER BY TOTAL_SALES DESC
+    LIMIT 10;
+    ```
+
+    ```sql title="Profitability: Gross Profit by Order (Top 10)"
+    SELECT 
+        ORDER_ID, 
+        SUM(PRODUCT_PRICE - SUPPLY_COST) AS GROSS_PROFIT
+    FROM ANALYTICS.DM.ORDER_ITEMS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY ORDER_ID
+    ORDER BY GROSS_PROFIT DESC;
+    ```
+
+    ```sql title="Profitability: Profit Margin Products (Top 10)"
+    SELECT 
+        PRODUCT_ID,
+        SUM(PRODUCT_PRICE - SUPPLY_COST) * 100.0 / SUM(PRODUCT_PRICE) AS PROFIT_MARGIN
+    FROM ANALYTICS.DM.ORDER_ITEMS
+    WHERE :daterange = ORDERED_AT
+    GROUP BY PRODUCT_ID
+    ORDER BY PROFIT_MARGIN desc
+    LIMIT 10;
+    ```
+
 
 2. **Return to your Dashboard** and repeat that process for other tiles to add filters.
 

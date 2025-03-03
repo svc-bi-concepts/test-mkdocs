@@ -8,6 +8,10 @@ Additionally, **documentation** serves as a **centralized source of truth**, hel
 
 At the moment, the Explore section in dbt Cloud is empty. Let's **deploy our models** and **generate documentation** to populate it.
 
+!!! note "Merge to main"
+    Make sure, you merged all your commits/changes to the main branch!
+    `Develop` > `Cloud IDE` > It should say `Create branch`.
+
 ![dbt Cloud Explore Section](./assets/screenshots/dbtDoc/dbtDoc1.png) 
 ---
 
