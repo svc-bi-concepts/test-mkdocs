@@ -62,26 +62,26 @@ FROM ANALYTICS.DM.ORDERS;
     Please, adapt `FROM ANALYTICS.DM.<Table>` to your schema.
 
     **KPIs**
-    ```sql title="KPI: Total Customers"
+    ```sql title="Total Customers"
     SELECT 
         COUNT(DISTINCT CUSTOMER_ID) AS TOTAL_CUSTOMERS
     FROM ANALYTICS.DM.ORDERS;
     ```
 
-    ```sql title="KPI: Total Orders"
+    ```sql title="Total Orders"
     SELECT 
         COUNT(*) AS TOTAL_ORDERS
     FROM ANALYTICS.DM.ORDERS;
     ```
 
-    ```sql title="KPI: Average Order Value (AOV)"
+    ```sql title="Average Order Value (AOV)"
     SELECT 
         SUM(ORDER_TOTAL) / NULLIF(COUNT(*), 0) AS AVG_ORDER_VALUE
     FROM ANALYTICS.DM.ORDERS;
     ```
 
     **Line Charts**
-    ```sql title="Line Chart: Revenue Trend (Daily)"
+    ```sql title="Revenue Trend (Daily)"
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         SUM(ORDER_TOTAL) AS DAILY_REVENUE
@@ -90,7 +90,7 @@ FROM ANALYTICS.DM.ORDERS;
     ORDER BY ORDER_DATE;
     ```
 
-    ```sql title="Line Chart: Orders Trend (Daily)"
+    ```sql title="Orders Trend (Daily)"
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         COUNT(*) AS DAILY_ORDERS
@@ -99,7 +99,7 @@ FROM ANALYTICS.DM.ORDERS;
     ORDER BY ORDER_DATE;
     ```
 
-    ```sql title="Line Chart: New vs Returning Customers (Monthly)"
+    ```sql title="New vs Returning Customers (Monthly)"
     SELECT 
         DATE_TRUNC('MONTH', FIRST_ORDERED_AT) AS MONTH,
         COUNT(CASE WHEN COUNT_LIFETIME_ORDERS = 1 THEN CUSTOMER_ID END) AS NEW_CUSTOMERS,
@@ -111,7 +111,7 @@ FROM ANALYTICS.DM.ORDERS;
 
     **Bar Charts**
 
-    ```sql title="Bar Chart: Revenue by Product Category (Food vs. Drink)"
+    ```sql title="Revenue by Product Category (Food vs. Drink)"
     SELECT 
         CASE 
             WHEN IS_FOOD_ITEM = 1 THEN 'Food' 
@@ -124,7 +124,7 @@ FROM ANALYTICS.DM.ORDERS;
     ORDER BY TOTAL_REVENUE DESC;
     ```
 
-    ```sql title="Bar Chart: Most Popular Products (Top 10)"
+    ```sql title="Most Popular Products (Top 10)"
     SELECT 
         PRODUCT_ID, 
         COUNT(*) AS TOTAL_SALES, 
@@ -135,7 +135,7 @@ FROM ANALYTICS.DM.ORDERS;
     LIMIT 10;
     ```
 
-    ```sql title="Profitability: Gross Profit by Order (Top 10)"
+    ```sql title="Gross Profit by Order (Top 10)"
     SELECT 
         ORDER_ID, 
         SUM(PRODUCT_PRICE - SUPPLY_COST) AS GROSS_PROFIT
@@ -145,7 +145,7 @@ FROM ANALYTICS.DM.ORDERS;
     LIMIT 10;
     ```
 
-    ```sql title="Profitability: Profit Margin Products (Top 10)"
+    ```sql title="Profit Margin Products (Top 10)"
     SELECT 
         PRODUCT_ID,
         SUM(PRODUCT_PRICE - SUPPLY_COST) * 100.0 / SUM(PRODUCT_PRICE) AS PROFIT_MARGIN
@@ -215,25 +215,25 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     Add a date field available in the table to the query.
 
     **KPIs**
-    ```sql title="KPI: Total Revenue"
+    ```sql title="Total Revenue"
     SELECT 
         SUM(ORDER_TOTAL) AS TOTAL_REVENUE
     FROM ANALYTICS.DM.ORDERS
     WHERE :daterange = ORDERED_AT;
     ```
-    ```sql title="KPI: Total Customers"
+    ```sql title="Total Customers"
     SELECT 
         COUNT(DISTINCT CUSTOMER_ID) AS TOTAL_CUSTOMERS
     FROM ANALYTICS.DM.ORDERS;
     ```
-    ```sql title="KPI: Total Orders"
+    ```sql title="Total Orders"
     SELECT 
         COUNT(*) AS TOTAL_ORDERS
     FROM ANALYTICS.DM.ORDERS
     WHERE :daterange = ORDERED_AT;
     ```
 
-    ```sql title="KPI: Average Order Value (AOV)"
+    ```sql title="Average Order Value (AOV)"
     SELECT 
         SUM(ORDER_TOTAL) / NULLIF(COUNT(*), 0) AS AVG_ORDER_VALUE
     FROM ANALYTICS.DM.ORDERS
@@ -241,7 +241,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     ```
 
     **Line Charts**
-    ```sql title="Line Chart: Revenue Trend (Daily)"
+    ```sql title="Revenue Trend (Daily)"
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         SUM(ORDER_TOTAL) AS DAILY_REVENUE
@@ -251,7 +251,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     ORDER BY ORDER_DATE;
     ```
 
-    ```sql title="Line Chart: Orders Trend (Daily)"
+    ```sql title="Orders Trend (Daily)"
     SELECT 
         DATE_TRUNC('DAY', ORDERED_AT) AS ORDER_DATE, 
         COUNT(*) AS DAILY_ORDERS
@@ -264,7 +264,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
 
     **Bar Charts**
 
-    ```sql title="Bar Chart: Revenue by Product Category (Food vs. Drink)"
+    ```sql title="Revenue by Product Category (Food vs. Drink)"
     SELECT 
         CASE 
             WHEN IS_FOOD_ITEM = 1 THEN 'Food' 
@@ -278,7 +278,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     ORDER BY TOTAL_REVENUE DESC;
     ```
 
-    ```sql title="Bar Chart: Most Popular Products (Top 10)"
+    ```sql title="Most Popular Products (Top 10)"
     SELECT 
         PRODUCT_ID, 
         COUNT(*) AS TOTAL_SALES, 
@@ -290,7 +290,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     LIMIT 10;
     ```
 
-    ```sql title="Profitability: Gross Profit by Order (Top 10)"
+    ```sql title="Gross Profit by Order (Top 10)"
     SELECT 
         ORDER_ID, 
         SUM(PRODUCT_PRICE - SUPPLY_COST) AS GROSS_PROFIT
@@ -300,7 +300,7 @@ Repeat this process by clicking on `+` in the top left to add more tiles to your
     ORDER BY GROSS_PROFIT DESC;
     ```
 
-    ```sql title="Profitability: Profit Margin Products (Top 10)"
+    ```sql title="Profit Margin Products (Top 10)"
     SELECT 
         PRODUCT_ID,
         SUM(PRODUCT_PRICE - SUPPLY_COST) * 100.0 / SUM(PRODUCT_PRICE) AS PROFIT_MARGIN
