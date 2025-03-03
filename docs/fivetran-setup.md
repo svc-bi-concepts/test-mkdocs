@@ -52,6 +52,10 @@ Fivetran enables automated data ingestion from Google Drive.
     - **Destination schema**: ```jaffle_shop```
     - **Folder URL**: ```https://drive.google.com/drive/u/0/folders/1Z_U_6SVP6vWXGJWHu9Fl_uUjieyVjaWX```
     
+        It might ask for the following:
+
+    - **Data processing location**: `EU`    
+    
 
     Desired state:
 
@@ -82,11 +86,11 @@ Connector configuration is set up - go to the next step and add Snowflake as our
 
     ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup14.png)
 
-2. Fill in the required information (Connection details from Snowflake and additional Fivetran configuration):
-    - **Snowflake Account URL** (example: Snowfakes Account/Server URL `<org_name>-<account_name>.snowflakecomputing.com/` | `BYELBTA-MV59868.snowflakecomputing.com`)
+2. Fill in the required information (Connection details from Snowflake (from your notes in `download.txt`) and additional Fivetran configuration):
+    - **Snowflake Account URL** (e.g. `BYELBTA-MV59868.snowflakecomputing.com`): `<org_name>-<account_name>.snowflakecomputing.com/>`
     - **Snowflake USER**: `<username>`
     - **Database**: `PSA`
-    - **Auth**: set to `PASSWORD`
+    - **Auth**: `PASSWORD`
     - **Role**: `ACCOUNTADMIN`
     - **Password**: `<password>`
     - **Data processing location**: `EU`
@@ -98,8 +102,6 @@ Connector configuration is set up - go to the next step and add Snowflake as our
     ![Snowflake Connection](./assets/screenshots/ftSetup/ftSetup15.png)
 
     - Click **Save & Test**.
-
-
     
     - **All connection tests passed!**
 
@@ -129,7 +131,7 @@ Once connected, start syncing data from **Google Drive to Snowflake**.
 
     ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup20.png)
 
-    On hover, you can see the details of the load process.
+    On hover over the time line block, you can see the details of the load process.
 
     ![Snowflake Data](./assets/screenshots/ftSetup/ftSetup21.png)
 

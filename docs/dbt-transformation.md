@@ -32,7 +32,7 @@ Before starting with dbt transformations, we need to add some more configuration
 
 1. Go to **Develop** > **Cloud IDE**.
 
-2. **Create a branch** named `<your-name>-feature/base-setup-jaffle-shop` for your changes.
+2. **Create a branch** named `feature/<your-name>-base-setup-jaffle-shop` for your changes.
 
     ![dbt Project Setup](./assets/screenshots/dbtTrans/dbtTrans1.png)
 

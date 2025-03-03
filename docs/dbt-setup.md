@@ -1,4 +1,6 @@
 # dbt Cloud Setup
+!!! note "MFA required"
+      With the second sign in, dbt cloud it asking for multi factor authentication.
 
 ## 1. Create a dbt Cloud Account
    1. To start using dbt Cloud, sign up for an account on the [dbt Cloud website](https://cloud.getdbt.com/){:target="_blank"}. **Start free trial**.
@@ -35,7 +37,7 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
       ![dbt Cloud New Project](./assets/screenshots/dbtSetup/dbtSetup6.png)
 
 
-   3. Fill out the form.
+   3. Fill out the form .
 
 !!! bug "Make sure the full account locator is correct"
 
@@ -48,7 +50,7 @@ dbt Cloud will per default set up a new project called `ANALYTICS`, which we wil
       [^2]: eu_central_2 is the region
 
    - Connection name: `Snowflake_HWZ`
-   - Your full account locator
+   - Account: `Full Account Locator` from your notes in the Snowflake section.
    - Database (Target in Snowflake): `Analytics`
    - Warehouse: `Transformer`
 

@@ -10,7 +10,7 @@ dbt provides built-in test types and supports custom tests through packages like
 
 ## 1. Defining Data Quality Tests
 
-In dbt, tests are defined within the `schema.yml` files alongside the models they validate. Create a schema.yml file in the staging folder.
+In dbt, tests are defined within the `.yml` files alongside the models (preferred) or schemas they validate.
 
 **Example: Basic Tests on the `stg_orders` Model in the staging schema**
 ```yaml title="./models/staging/staging.yml" linenums="1" hl_lines="7-9 12-15"
@@ -40,8 +40,30 @@ models:
 
 ---
 
+## 2. Add dbt-expectations for advanced testing
 
-## 2. Add data quality tests
+Add package dbt-expectations to your packages.yml file
+
+```yaml title="./packages.yml" linenums="1" hl_lines="4-5"
+packages:
+  - package: dbt-labs/dbt_utils
+    version: [">=1.0.0", "<2.0.0"]
+  - package: calogica/dbt_expectations
+    version: [">=0.10.1", "<0.11.0"]
+```
+
+Run dbt deps to install the package
+
+```bash
+dbt deps
+```
+
+See all the tests available in the dbt-expectations package [here](https://hub.getdbt.com/calogica/dbt_expectations/latest/){target=_blank}.
+
+---
+
+
+## 3. Add data quality tests
 
 Add data quality tests to your dbt project in the source.yml file
 
@@ -91,32 +113,12 @@ sources:
 ```
 
 
----
 
-## 3. Add dbt-expectations for advanced testing
-
-Add package dbt-expectations to your packages.yml file
-
-```yaml title="./packages.yml" linenums="1" hl_lines="4-5"
-packages:
-  - package: dbt-labs/dbt_utils
-    version: [">=1.0.0", "<2.0.0"]
-  - package: calogica/dbt_expectations
-    version: [">=0.10.1", "<0.11.0"]
-```
-
-Run dbt deps to install the package
-
-```bash
-dbt deps
-```
-
-See all the tests available in the dbt-expectations package [here](https://hub.getdbt.com/calogica/dbt_expectations/latest/){target=_blank}.
 
 
 ---
 
-## 5. Running Tests
+## 4. Running Tests
 
 Running dbt tests is as simple as adding the below code to the command line and run it with `Cmd + Enter` on Mac or `Ctrl + Enter` in Windows. Execute the command below:
 
@@ -154,7 +156,8 @@ Commit the changes to your repository. Add a commit message `Add data quality te
 
 
 ---
-## 6. Advanced Granular Test Configuration
+
+## 5. Advanced Granular Test Configuration
 
 dbt allows defining granular conditions within test configurations. This ensures flexibility and targeted validation for business rules. If you like, you can also add this logic in your code in a new file `./marts/staging/staging.yml`.
 
@@ -184,7 +187,8 @@ Dynamic thresholds:
 
 
 ---
-## 7. Tip for Handling Test Failures
+
+## 6. Tip for Handling Test Failures
 
 When a test fails, dbt provides detailed logs with failing records. You can let dbt add this information into snowflake to identify failed records. More information [here](https://docs.getdbt.com/reference/resource-configs/store_failures){target=_blank}.
 
