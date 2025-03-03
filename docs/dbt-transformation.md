@@ -24,7 +24,10 @@ Despite these advantages, the landscape of data architecture has seen various tr
 > **Nice try, kid!**  
 
 ---
+
 Let's get back to work:
+
+This part will cover, which elements of a data warehouse need to be addressed. We will not fully implement all documentation, tests and the intermediate data warehouse layer (e.g. DataVault - too complex for this setting). 
 
 ## 1. Prepare Project Setup in dbt
 
