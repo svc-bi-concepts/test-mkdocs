@@ -4,7 +4,7 @@
 
 This tutorial walks you through setting up a scalable, cloud-based data platform using:
 
-- **Snowflake** for cloud data storage
+- **Snowflake** for cloud data storage & compute
 - **dbt Cloud** for data transformation
 - **Fivetran** for data ingestion
 
