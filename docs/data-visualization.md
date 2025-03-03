@@ -80,13 +80,6 @@ FROM ANALYTICS.DM.ORDERS;
     FROM ANALYTICS.DM.ORDERS;
     ```
 
-    ```sql title="KPI: Repeat Customer Rate"
-    SELECT 
-        COUNT(CASE WHEN COUNT_LIFETIME_ORDERS > 1 THEN CUSTOMER_ID END) * 100.0 
-        / COUNT(*) AS REPEAT_CUSTOMER_RATE
-    FROM ANALYTICS.DM.CUSTOMERS;
-    ```
-
     **Line Charts**
     ```sql title="Line Chart: Revenue Trend (Daily)"
     SELECT 
